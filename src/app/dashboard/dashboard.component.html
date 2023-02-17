@@ -1,0 +1,28 @@
+<form (ngSubmit)="search()" #loginForm="ngForm"  autocomplete="off">
+    
+    <div>
+        <label for="search"> Search </label>
+        <input type="search" id="search" name="search" [(ngModel)]="searchString" required>
+    </div>
+    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+  </form>
+<br>
+<div *ngIf="products">
+    <table class="table table-striped">
+        <tr>
+            <td>Title</td>
+            <td>Category</td>
+            <td>Price </td>
+            <td>Stock</td>
+            <td>Description</td>
+        </tr>
+        <tr *ngFor="let a of products">
+            <td>{{a.title}}</td>
+            <td>{{a.category}}</td>
+            <td>{{a.price}}</td>
+            <td>{{a.stock}}</td>
+            <td>{{a.description}}</td>
+        </tr>
+    </table>
+</div>
+  
